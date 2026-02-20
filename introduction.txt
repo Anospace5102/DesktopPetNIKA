@@ -1,0 +1,19 @@
+# python,需要PySide6
+# 打包
+#  静态 不带console
+pyinstaller -F -w --add-data "surprise;surprise" --add-data "go_to_sleep;go_to_sleep" --add-data "waiting;waiting" --add-data "sleeping;sleeping" --add-data "run_right;run_right" --add-data "arrive_right;arrive_right" --add-data "run_left;run_left" --add-data "arrive_left;arrive_left" --add-data "waiting2;waiting2" --add-data "bang;bang" --add-data "config.json;." luffy.py
+
+#  不带console 动态加载
+pyinstaller -F -w luffy.py
+#  带console
+pyinstaller -F luffy.py
+
+
+pyinstaller -F -w -n "luffy" -i "luffy.ico" luffy.py
+# 使用动态版本要将.exe放入config.json同一层级目录
+
+# 更改config.json设置大小，等待时间
+
+#右键给你一拳，左键吃惊，双击跑路，静置等待几秒钟睡觉
+
+# 点击后按Esc结束
