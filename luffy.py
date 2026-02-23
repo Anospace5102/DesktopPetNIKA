@@ -89,7 +89,7 @@ class DesktopPet(QWidget):
 
     def init(self):
         # 窗口设置
-        self.setWindowFlags(Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
+        self.setWindowFlags(Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.Tool)
         self.setAttribute(Qt.WA_TranslucentBackground, True)
 
         # 设置动画标签
@@ -149,30 +149,6 @@ class DesktopPet(QWidget):
                 else:
                     self.mode = 0
                     self.cur_index = length - 1
-
-        # # ### ########################## ### #########
-        # if self.mode != 0 and self.timer_task_waiting.isActive():
-        #     self.timer_task_waiting.stop()
-        #     print("cancel")
-        # if self.mode == 0:
-        #     # self.cur_index = (self.cur_index + 1) % len(self.image_seq.images)
-        #     if not self.timer_task_waiting.isActive():
-        #         self.timer_task_waiting.start()
-        #     print(self.timer_task_waiting.isActive())
-        # elif self.mode == 1:
-        #     self.cur_index = self.cur_index + 1
-        #     # surprise播放完后
-        #     if self.cur_index >= len(self.image_seq.images):
-        #         self.mode = 0
-        #         # 停回在最后一帧
-        #         self.cur_index-=1
-        #         self.timer_task_waiting.start()
-        # elif self.mode ==2 :
-        #     self.cur_index = self.cur_index + 1
-        #     if self.cur_index >= len(self.image_seq.images):
-        #         self.mode = 0
-        #         # 停回在最后一帧
-        #         self.cur_index-=1
        
         self.label.setPixmap(self.image_seqs[self.cur_image].images[self.cur_index])
         self.label.resize(self.image_seqs[self.cur_image].images[self.cur_index].size())
@@ -288,4 +264,3 @@ if __name__ == "__main__":
 
     sys.exit(app.exec())
 
-    
